@@ -97,6 +97,7 @@ app.use('/api',require('./Routes/apiAusentismoCompleto'));
 app.use('/api',require('./Routes/apiMedico'));
 app.use('/api',require('./Routes/apiMorbilidad'));
 app.use('/api',require('./Routes/apiGetDate'));
+app.use('/api',require('./Routes/apiPais'));
 app.use('/api',require('./Routes/apiCapituloCie10'));
 
 app.use('/api', require('./Routes/eventos'));

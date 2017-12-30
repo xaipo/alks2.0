@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule,
+  PanelModule,
+  InputMaskModule,
+  AutoCompleteModule,
   GrowlModule} from 'primeng/primeng';
 import { routing, appRoutingProviders } from './app.router';
 import { HttpModule } from '@angular/http';
@@ -46,13 +49,15 @@ import { InitialComponent } from './Components/Generic/initial/initial.component
 import { LoginComponent } from './Components/Generic/login/login.component';
 import { DashboardComponent } from './Components/Administrator/dashboard/dashboard.component';
 import { DocsDashboardComponent } from './Components/Doctors/docs-dashboard/docs-dashboard.component';
+import { PacienteComponent } from './Components/Administrator/paciente/paciente.component';
 @NgModule({
   declarations: [
     AppComponent,
     InitialComponent,
     LoginComponent,
     DashboardComponent,
-    DocsDashboardComponent
+    DocsDashboardComponent,
+    PacienteComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +99,10 @@ import { DocsDashboardComponent } from './Components/Doctors/docs-dashboard/docs
     ButtonModule,
     routing,
     GrowlModule,
-    HttpModule
+    HttpModule,
+    PanelModule,
+    InputMaskModule,
+    AutoCompleteModule
   ],
   providers: [ appRoutingProviders],
   bootstrap: [AppComponent]

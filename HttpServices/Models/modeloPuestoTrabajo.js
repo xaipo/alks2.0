@@ -10,7 +10,7 @@ var categoriaSchema = new mongoose.Schema({
     nombre_puesto : String,
     dependencia:  mongoose.Schema.ObjectId,
     cargo:  mongoose.Schema.ObjectId,
-    fecha: String,
+    fecha: Date,
     estado: String,
     jornada:  mongoose.Schema.ObjectId,
     descripcion_funciones: String,

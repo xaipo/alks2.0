@@ -10,6 +10,7 @@ import {DashboardComponent} from './Components/Administrator/dashboard/dashboard
 import {InitialComponent} from './Components/Generic/initial/initial.component';
 import {LoginComponent} from './Components/Generic/login/login.component';
 import {DocsDashboardComponent} from './Components/Doctors/docs-dashboard/docs-dashboard.component';
+import {PacienteComponent} from "./Components/Administrator/paciente/paciente.component";
 
 
 
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
       {
         path: 'init',
         component: InitialComponent
+      },
+      {
+        path: 'add-paciente',
+        component: PacienteComponent
       },
       {
         path: '**',
