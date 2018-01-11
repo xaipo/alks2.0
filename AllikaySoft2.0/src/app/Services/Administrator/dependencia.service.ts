@@ -16,7 +16,10 @@ export class DependenciaService {
     return this._http.get(this.url+'/dependencia')
       .map(res=>res.json());
   }
-
+  getAllbyId(id){
+    return this._http.get(this.url+'/dependencia?id_empresa='+id)
+      .map(res=>res.json());
+  }
   save(obj_to_register){
 
     let params = JSON.stringify(obj_to_register);

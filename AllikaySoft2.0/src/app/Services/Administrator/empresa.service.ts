@@ -10,7 +10,10 @@ export class EmpresaService {
   constructor(private _http: Http) {
     this.url = GLOBAL.url;
   }
-
+  getByDescription(desc){
+    return this._http.get(this.url+'/empresa?nombre_empresa='+desc)
+      .map(res=>res.json());
+  }
   getAll(){
     return this._http.get(this.url+'/empresa')
       .map(res=>res.json());

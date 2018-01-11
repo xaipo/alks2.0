@@ -1,77 +1,83 @@
 <section class="container">
   <p-panel header="PACIENTE">
-    <p-panel header="Datos Paciente">
+    <p-panel header="DATOS GENERALES DEL PACIENTE">
       <div class="row">
         <div class="col-md-12 col-xs-12">
           <mat-checkbox [(ngModel)]="cedula_pasaporte" color="primary">Cédula/Pasaporte</mat-checkbox>
           <mat-form-field class="example-full-width" *ngIf="cedula_pasaporte">
-            <input matInput placeholder="Cédula" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' tabindex="3" [(ngModel)]="newPaciente.cedula">
+            <input matInput placeholder="Cédula" type="text"
+                   onkeypress='return event.charCode >= 48 && event.charCode <= 57' tabindex="3"
+                   [(ngModel)]="newPaciente.cedula">
           </mat-form-field>
-          <mat-form-field class="example-full-width" *ngIf="!cedula_pasaporte" >
+          <mat-form-field class="example-full-width" *ngIf="!cedula_pasaporte">
             <input matInput placeholder="Pasaporte" type="text" [(ngModel)]="newPaciente.cedula">
           </mat-form-field>
         </div>
       </div>
-        <div class="row">
+      <div class="row">
 
         <div class="col-md-3 col-xs-12">
 
-          <mat-form-field class="example-full-width" >
-            <input matInput placeholder="Primer Nombre" >
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Primer Nombre" [(ngModel)]="newPaciente.primer_nombre">
           </mat-form-field>
 
 
         </div>
         <div class="col-md-3 col-xs-12">
-          <mat-form-field class="example-full-width" >
-            <input matInput placeholder="Segundo Nombre" >
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Segundo Nombre" [(ngModel)]="newPaciente.segundo_nombre">
           </mat-form-field>
 
 
         </div>
         <div class="col-md-3 col-xs-12">
-          <mat-form-field class="example-full-width" >
-            <input matInput placeholder="Primer Apellido" >
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Primer Apellido" [(ngModel)]="newPaciente.primer_apellido">
           </mat-form-field>
         </div>
-          <div class="col-md-3 col-xs-12">
-            <mat-form-field class="example-full-width" >
-              <input matInput placeholder="Segundo Apellido" >
-            </mat-form-field>
-          </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Segundo Apellido" [(ngModel)]="newPaciente.segundo_apellido">
+          </mat-form-field>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-3 col-xs-12">
-          <p-autoComplete [(ngModel)]="empleado" [suggestions]="filteredObjSingle" (completeMethod)="filterSingle($event)" field="nombre_pais"  [size]="30"
-                          placeholder="País" [minLength]="1"  >
+          <p-autoComplete [(ngModel)]="empleado" [suggestions]="filteredObjSingle"
+                          (completeMethod)="filterSingle($event)" field="nombre_pais" [size]="30"
+                          placeholder="País" [minLength]="1">
             <ng-template let-value pTemplate="item">
-              <div>{{value.nombre_pais }} </div>
+              <div>{{value.nombre_pais }}</div>
             </ng-template>
           </p-autoComplete>
         </div>
 
         <div class="col-md-3 col-xs-12">
-          <div class="ui-grid-col-4" style="margin-left: 20px">{{empleado ? empleado.nombre_pais||empleado : ''}} </div>
+          <div class="ui-grid-col-4" style="margin-left: 20px">{{empleado ? empleado.nombre_pais||empleado : ''}}</div>
         </div>
 
-      <div class="col-md-3 col-xs-12">
-        <p-autoComplete [(ngModel)]="empleado2" [suggestions]="filteredObjSingle2" (completeMethod)="filterSingle2($event)" field="nombre_provincia"  [size]="30"
-                        placeholder="Provincia" [minLength]="1"  >
-          <ng-template let-value pTemplate="item">
-            <div>{{value.nombre_provincia }} </div>
-          </ng-template>
-        </p-autoComplete>
-      </div>
+        <div class="col-md-3 col-xs-12">
+          <p-autoComplete [(ngModel)]="empleado2" [suggestions]="filteredObjSingle2"
+                          (completeMethod)="filterSingle2($event)" field="nombre_provincia" [size]="30"
+                          placeholder="Provincia" [minLength]="1">
+            <ng-template let-value pTemplate="item">
+              <div>{{value.nombre_provincia }}</div>
+            </ng-template>
+          </p-autoComplete>
+        </div>
 
-      <div class="col-md-3 col-xs-12">
-        <div class="ui-grid-col-4" style="margin-left: 20px">{{empleado2 ? empleado2.nombre_provincia||empleado2 : ''}} </div>
-      </div>
+        <div class="col-md-3 col-xs-12">
+          <div class="ui-grid-col-4" style="margin-left: 20px">{{empleado2 ? empleado2.nombre_provincia||empleado2 :
+            ''}}
+          </div>
+        </div>
       </div>
 
       <div class="row">
 
         <div class="col-md-3 col-xs-12">
-          <mat-form-field>
+          <mat-form-field class="example-full-width">
             <mat-select placeholder="Ciudad" [(ngModel)]="newPaciente.ciudad">
               <mat-option *ngFor="let food of ciudades" [value]="food._id">
                 {{ food.nombre_ciudad }}
@@ -80,27 +86,111 @@
           </mat-form-field>
         </div>
         <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Sexo" [(ngModel)]="newPaciente.sexo">
+              <mat-option *ngFor="let food of sexo" [value]="food.code">
+                {{ food.description }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <!--<mat-form-field class="example-full-width" >
+            <input matInput [matDatepicker]="myDatepicker" [(ngModel)]="newPaciente.fecha_nacimiento" placeholder="Fecha de Nacimiento" lang="es-esp">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+          </mat-form-field>-->
+          <label for="telf">Fecha Nacimiento:</label>
+          <p-calendar [locale]="es" [(ngModel)]="newPaciente.fecha_nacimiento"></p-calendar>
+          {{fecha_nacimiento|date}}
 
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Edad" [(ngModel)]="newPaciente.edad" type="number" min="1" max="200">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-xs-12">
+          <label for="telf">Teléfono:</label>
+          <p-inputMask [(ngModel)]="val" mask="9999999999" [(ngModel)]="newPaciente.telefono" id="telf"
+                       class="example-full-width"></p-inputMask>
+
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Estado Civil" [(ngModel)]="newPaciente.estado_civil">
+              <mat-option *ngFor="let food of estadosCivil" [value]="food._id">
+                {{ food.descripcion_estado_civil }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Nivel Estudio" [(ngModel)]="newPaciente.nivel_estudio">
+              <mat-option *ngFor="let food of nivelesEstudio" [value]="food._id">
+                {{ food.descripcion_nivel_estudio }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div class="col-md-3 col-xs-12">
 
         </div>
-        <div class="col-md-3 col-xs-12">
 
-        </div>
       </div>
 
 
-
     </p-panel>
-    <p-panel header="Datos Puesto de Trabajo">
+    <p-panel header="INFORMACIÓN OCUPACIONAL CARGO ACTUAL / RETIRADO O A INGRESAR">
       <div class="row">
 
         <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="UNACH" readonly value="UNACH" [(ngModel)]="newPuesto.empresa.nombre_empresa">
+          </mat-form-field>
 
         </div>
         <div class="col-md-3 col-xs-12">
-
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Dependencia" [(ngModel)]="newPuesto.dependencia" (change)="getCargo($event)">
+              <mat-option *ngFor="let food of dependencias" [value]="food._id">
+                {{ food.nombre_dependencia }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Cargo" [(ngModel)]="newPuesto.cargo">
+              <mat-option *ngFor="let food of cargos" [value]="food._id">
+                {{ food.nombre_cargo}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Jornada" [(ngModel)]="newPuesto.jornada">
+              <mat-option *ngFor="let food of jornadas" [value]="food._id">
+                {{ food.nombre_jornada}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-xs-12">
+          <label for="telf">Fecha Cargo:</label>
+          <p-calendar [locale]="es" [(ngModel)]="newPuesto.fecha"></p-calendar>
+          {{fecha|date}}
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Descripción Funciones" [(ngModel)]="newPuesto.descripcion_funciones">
+          </mat-form-field>
         </div>
         <div class="col-md-3 col-xs-12">
 
@@ -113,11 +203,13 @@
 
     <div class="row">
       <div class="col-md-3 col-xs-12">
-        <button pButton type="button"  label="Ingresar" class="ui-button-success" style="width: 100%" (click)="guardar()" ></button>
+        <button pButton type="button" label="Ingresar" class="ui-button-success" style="width: 100%"
+                (click)="guardar()"></button>
       </div>
 
       <div class="col-md-3 col-xs-12">
-        <button pButton type="button"  label="Cancelar" class="ui-button-primary" style="width: 100%" (click)="cancelar()" ></button>
+        <button pButton type="button" label="Cancelar" class="ui-button-primary" style="width: 100%"
+                (click)="cancelar()"></button>
       </div>
 
     </div>

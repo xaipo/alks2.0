@@ -9,6 +9,7 @@ import {ButtonModule,
   PanelModule,
   InputMaskModule,
   AutoCompleteModule,
+  CalendarModule,
   GrowlModule} from 'primeng/primeng';
 import { routing, appRoutingProviders } from './app.router';
 import { HttpModule } from '@angular/http';
@@ -102,7 +103,8 @@ import { PacienteComponent } from './Components/Administrator/paciente/paciente.
     HttpModule,
     PanelModule,
     InputMaskModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    CalendarModule
   ],
   providers: [ appRoutingProviders],
   bootstrap: [AppComponent]

@@ -25,6 +25,10 @@ export class CargoService {
     return this._http.post(this.url+'/cargo', params, {headers: headers})
       .map(res=>res.json());
   }
+  getById(id){
+    return this._http.get(this.url+'/cargo?dependencia='+id)
+      .map(res=>res.json());
+  }
 
   update(obj_to_update){
 
